@@ -1,0 +1,264 @@
+﻿<Window x:Class="ModernCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:UserControl="clr-namespace:ModernCalculator.UserControls"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        Title="Calculator" 
+        Height="700" 
+        Width="350">
+    
+    
+    <Border CornerRadius="50"
+            Background="#FF1B2731">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="175"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+
+
+            <TextBlock Grid.Row="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Foreground="White"
+                       FontSize="60"
+                       Margin="20,0,20,0"
+                       x:Name="text_Output"/>
+
+            <TextBlock Grid.Row="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Foreground="White"
+                       FontSize="20"
+                       Margin="20,0,20,0"
+                       x:Name="text_displayValues"/>
+
+
+
+            <StackPanel Orientation="Horizontal"
+                        Width="400"
+                        HorizontalAlignment="Right"
+                        MouseLeftButtonDown="StackPanel_MouseLeftButtonDown"
+                        Background="Transparent">
+                
+
+
+            <UserControl:WindowControlButton NormalImageSource="../Icons/close_Icon.png"
+                                             ActiveImageSource="../Icons/close_Act_Icon.png"
+                                             ButtonClick="btnClose_Click" 
+                                             Width="25"
+                                             Height="25" 
+                                             Margin="345,5,0,0"/>
+            
+            </StackPanel>
+
+
+            <Grid Grid.Row="4" 
+                  Margin="10,10,10,25">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+
+              
+
+
+
+                <UserControl:ActionButton Grid.Row="0"
+                                          Grid.Column="0"
+                                          Title="AC" 
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_action"
+                                          x:Name="btn_clear"/>
+
+                <UserControl:ActionButton Grid.Row="0"
+                                          Grid.Column="1"
+                                          Title="⌫"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_action"
+                                          x:Name="btn_backspace"/>
+
+                <UserControl:ActionButton Grid.Row="0"
+                                          Grid.Column="2"
+                                          Title="%"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_action"
+                                          x:Name="btn_percent"/>
+
+                <UserControl:ActionButton Grid.Row="0"
+                                          Grid.Column="3"
+                                          Title="÷"
+                                          MyFontSize="35"
+                                          Margin="10"
+                                          ButtonClick="btn_action"
+                                          x:Name="btn_divide"/>
+
+                <UserControl:NumberButton Grid.Row="1"
+                                          Grid.Column="0"
+                                          Title="7"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_7"/>
+                
+                <UserControl:NumberButton Grid.Row="1"
+                                          Grid.Column="1"
+                                          Title="8"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_8"/>
+                
+                <UserControl:NumberButton Grid.Row="1"
+                                          Grid.Column="2"
+                                          Title="9"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_9"/>
+
+                <UserControl:ActionButton Grid.Row="1"
+                                          Grid.Column="3"
+                                          Title="X"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_action"
+                                          x:Name="btn_multiply"/>
+
+                <UserControl:NumberButton Grid.Row="2"
+                                          Grid.Column="0"
+                                          Title="4"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_4"/>
+                
+                <UserControl:NumberButton Grid.Row="2"
+                                          Grid.Column="1"
+                                          Title="5"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_5"/>
+
+                <UserControl:NumberButton Grid.Row="2"
+                                          Grid.Column="2"
+                                          Title="6"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_6"/>
+
+
+                <UserControl:ActionButton Grid.Row="2"
+                                          Grid.Column="3"
+                                          Title="-"
+                                          MyFontSize="35"
+                                          Margin="10"
+                                          ButtonClick="btn_action"
+                                          x:Name="btn_minus"/>
+
+
+
+
+                <UserControl:NumberButton Grid.Row="3"
+                                          Grid.Column="0"
+                                          Title="1"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_1"/>
+
+                <UserControl:NumberButton Grid.Row="3"
+                                          Grid.Column="1"
+                                          Title="2"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_2"/>
+
+                <UserControl:NumberButton Grid.Row="3"
+                                          Grid.Column="2"
+                                          Title="3"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_3"/>
+
+                <UserControl:ActionButton Grid.Row="3"
+                                          Grid.Column="3"
+                                          Title="+"
+                                          MyFontSize="35"
+                                          Margin="10"
+                                          ButtonClick="btn_action"
+                                          x:Name="btn_plus"/>
+
+
+                <UserControl:NumberButton Grid.Row="4"
+                                          Grid.Column="0"
+                                          Title="0"
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_0"/>
+
+                <UserControl:NumberButton Grid.Row="4"
+                                          Grid.Column="1"
+                                          Title="."
+                                          MyFontSize="22"
+                                          Margin="10"
+                                          ButtonClick="btn_number"
+                                          x:Name="btn_dot"/>
+
+                <UserControl:TotalButton Grid.Row="4"
+                                         Grid.Column="2"
+                                         Grid.ColumnSpan="3"
+                                         Title="="
+                                         MyFontSize="35"
+                                         Margin="10"
+                                         ButtonClick="btn_action"
+                                         x:Name="btn_total"/>
+
+
+            </Grid>
+            
+            
+            
+            
+            
+            
+        </Grid>
+
+
+        
+        
+    </Border>
+    
+    
+</Window>

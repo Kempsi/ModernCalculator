@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="ModernCalculator.UserControls.ActionButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModernCalculator.UserControls"         
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="50">
+
+
+    <Grid>
+
+        <Button Background="Transparent" 
+                BorderBrush="Black" 
+                BorderThickness="5"
+                Click="Button_Click" 
+>
+            <Button.Effect>
+                <DropShadowEffect Color="Black"
+                                  ShadowDepth="1"
+                                  BlurRadius="10"/>
+            </Button.Effect>
+
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="10"
+                            Background="#FF1B2731"
+                            x:Name="border">
+
+                        <Border.Effect>
+
+                            <DropShadowEffect Color="#FF87A1B7"
+                                              ShadowDepth="2"
+                                              BlurRadius="10"
+                                              Direction="100" 
+                                              RenderingBias="Quality" 
+                                              Opacity="0.5"/>
+
+
+
+                        </Border.Effect>
+
+
+                        <Grid>
+
+                            <Label Content="{Binding Title}"
+                                   Foreground="#FFFF7E1D"
+                                   Background="Transparent"
+                                   FontFamily="Segoe UI"
+                                   x:Name="label"
+                                   FontSize="{Binding MyFontSize}" 
+                                   VerticalContentAlignment="Center" 
+                                   HorizontalContentAlignment="Center" Margin="0,0,0,5"/>
+                        </Grid>
+
+
+
+
+
+
+
+                    </Border>
+
+
+
+
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="label" 
+                                                Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)" 
+                                                To="#FF0B6CCF" Duration="0:0:0.1"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="label" 
+                                                Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)" 
+                                                To="#FFFF7E1D" Duration="0:0:0.1"/>
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="label" Property="Foreground" Value="#FF17417C"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="label" Property="Foreground" Value="#FF0B6CCF"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsPressed" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="label" Property="Foreground" Value="#FFFF7E1D"/>
+                        </MultiTrigger>
+
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</UserControl>
